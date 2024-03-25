@@ -5,14 +5,14 @@ const Signup = () => {
     const [credentials, setCredentials] = useState({email: "", password: "" });
 
     return(
-        <div>
+        <div className="page">
             <div>
                 <header className="header">
                     <div><p>logo</p></div>
                     <h1>Make the most of your professional life</h1>
                 </header>
-                <div>
-                    <form className="form flex column center">
+                <div className="form-container flex column center">
+                    <form className="form">
                         <div className="flex column">
                             <label htmlFor="email">Email</label>
                             <input 
