@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import "../style.css";
+import axios from "axios";
 
 const Signup = () => {
     const [credentials, setCredentials] = useState({email: "", password: "" });
@@ -56,7 +57,27 @@ const Signup = () => {
                         </div>
                         
 
-                        <button>Agree & Join</button>
+                        <button
+                            onClick={async () => {
+                                try {
+                                    const {email, password, type} = credentials;
+                                    const formData = new FormData();
+                                    formData.append('email', email);
+                                    formData.append('password', password);
+                                    formData.append('type', type);
+
+                                    const response = await axios.post (
+                                        "http://localhost/linkedin-clone/backend/authentication/signup.php",
+                                        formData,
+                                    );
+                                    console.log(response.data);
+                                } catch (error){
+                                    console.error(error)
+                                    }
+                                }}
+                        >Agree & Join</button>
+
+                        <p>Already on LinkedIn <span>Sign in</span></p>
 
                     </form>
                 </div>
