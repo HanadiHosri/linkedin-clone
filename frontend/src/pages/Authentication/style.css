@@ -1,0 +1,21 @@
+.header h1 {
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.form {
+    padding: 10px;
+    gap: 10px;
+}
+
+.center {
+   justify-content: center;
+   align-items: center; 
+}
