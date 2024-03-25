@@ -2,6 +2,7 @@ import "./style.css";
 import { useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import Signup from "./components/Signup";
+import Signin from "./components/Signin";
 
 const Authentication = () => {
     const navigate = useNavigate();
@@ -10,7 +11,7 @@ const Authentication = () => {
     const [error, setError] = useState("");
 
     return (
-        <Signup />
+        <Signin />
     )
 }
 

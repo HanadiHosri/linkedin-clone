@@ -1,10 +1,11 @@
 import React, {useState} from "react";
 import "../style.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Signin = () => {
     const [credentials, setCredentials] = useState({ email: "", password: "" });
-
+    const navigate = useNavigate();
     return (
         <div className="page">
             <div>
@@ -60,6 +61,10 @@ const Signin = () => {
                                         formData,
                                     );
                                     console.log(response.data);
+                                    
+                                    if (response.data.status === "logged in") {
+                                        navigate("/home");
+                                    }
                                 } catch (error){
                                     console.error(error)
                                     }

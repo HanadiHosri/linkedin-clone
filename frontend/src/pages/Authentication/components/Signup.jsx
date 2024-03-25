@@ -1,9 +1,11 @@
 import React, {useState} from "react";
 import "../style.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
     const [credentials, setCredentials] = useState({email: "", password: "" });
+    const navigate = useNavigate();
 
     return(
         <div className="page">
@@ -71,13 +73,18 @@ const Signup = () => {
                                         formData,
                                     );
                                     console.log(response.data);
+
+                                    if (response.data.status === "success") {
+                                        navigate("/home");
+                                    }
+
                                 } catch (error){
                                     console.error(error)
                                     }
                                 }}
                         >Agree & Join</button>
 
-                        <p>Already on LinkedIn <span>Sign in</span></p>
+                        <p>Already on LinkedIn? <span>Sign in</span></p>
 
                     </form>
                 </div>
